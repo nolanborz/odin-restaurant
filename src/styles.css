@@ -1,3 +1,21 @@
 body {
   background-color: rgb(183, 255, 157);
 }
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 40px;
+}
+
+.nav-button {
+  margin: 0 10px;
+}
+
+.fork-icon {
+  rotate: 45deg;
+  width: 60px;
+  height: 60px;
+}

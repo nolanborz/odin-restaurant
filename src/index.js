@@ -1,19 +1,54 @@
 import "./styles.css";
-import { greeting } from "./greeting.js";
+import { loadHome } from './home.js';
+import { loadMenu } from './menu.js';
+import { loadAbout } from './about.js';
 
-console.log(greeting);
-//First, select the element//
-const content = document.getElementById("content");
-//Create the elements you want to inject//
-const header = document.createElement("h1");
-const paragraph = document.createElement("p");
-//Add content to the elements//
-header.textContent = "Nona's Pasta Italiana";
-paragraph.textContent = "This pasta kitchen revolutionizes pasta as we know it, and the best part? It comes all from Nona's kitchen.";
+//import forkIcon from './fork.png';
+// const style = document.createElement("style");
+// style.textContent = `
+//   body {
+  //     background-image:
+  //     linear-gradient(45deg, #ff0000 25%, transparent 25%),
+  //     linear-gradient(-45deg, #ff0000 25%, transparent 25%),
+  //     linear-gradient(45deg, transparent 75%, #ff0000 75%),
+  //     linear-gradient(-45deg, transparent 75%, #ff0000 75%);
+  //   background-size: 40px 40px;
+  //   background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+  //   background-color: white;
+  //   }
+  // `;
+  const homeBtn = document.querySelector('nav button:nth-child(1)');
+  const menuBtn = document.querySelector('nav button:nth-child(2)');
+  const aboutBtn = document.querySelector('nav button:nth-child(3)');
+  const content = document.getElementById("content");
+
+homeBtn.addEventListener('click', () => {
+  clearContent();
+  loadHome();
+});
+
+menuBtn.addEventListener('click', () => {
+  clearContent();
+  loadMenu();
+});
+
+aboutBtn.addEventListener('click', () => {
+  clearContent();
+  loadAbout();
+});
+
+function clearContent() {
+  content.innerHTML = '';
+}
+
+loadHome();
 
 
 
-//Append the new elements to the target div//
+// document.head.appendChild(style)
+
 content.appendChild(header);
 content.appendChild(paragraph);
+content.appendChild(img);
+
 
