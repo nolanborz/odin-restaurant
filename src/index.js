@@ -54,16 +54,3 @@ window.addEventListener('resize', () => {
     updateForkPosition(activeButton);
 });
 
-// const style = document.createElement("style");
-// style.textContent = `
-//   body {
-  //     background-image:
-  //     linear-gradient(45deg, #ff0000 25%, transparent 25%),
-  //     linear-gradient(-45deg, #ff0000 25%, transparent 25%),
-  //     linear-gradient(45deg, transparent 75%, #ff0000 75%),
-  //     linear-gradient(-45deg, transparent 75%, #ff0000 75%);
-  //   background-size: 40px 40px;
-  //   background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
-  //   background-color: white;
-  //   }
-  // `;
