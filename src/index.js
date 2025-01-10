@@ -2,8 +2,58 @@ import "./styles.css";
 import { loadHome } from './home.js';
 import { loadMenu } from './menu.js';
 import { loadAbout } from './about.js';
+import forkIcon from './fork.png';
 
-//import forkIcon from './fork.png';
+const homeBtn = document.querySelector('.nav-top button:nth-child(1)');
+const menuBtn = document.querySelector('.nav-top button:nth-child(2)');
+const aboutBtn = document.querySelector('.nav-top button:nth-child(3)');
+const navBottom = document.querySelector('.nav-bottom');
+const content = document.getElementById("content");
+
+
+const forkIndicator = new Image();
+forkIndicator.src = forkIcon;
+forkIndicator.classList.add('fork-indicator');
+navBottom.appendChild(forkIndicator);
+
+function updateForkPosition(button) {
+  const buttonRect = button.getBoundingClientRect();
+  const navRect = document.querySelector('.nav-top').getBoundingClientRect();
+  const navBottomRect = document.querySelector('.nav-bottom').getBoundingClientRect();
+
+  const centerPosition = (buttonRect.left + buttonRect.width/2) - navBottomRect.left - (forkIndicator.width/2);
+  forkIndicator.style.left = `${centerPosition}px`;
+}
+
+homeBtn.addEventListener('click', () => {
+  clearContent();
+  loadHome();
+  updateForkPosition(homeBtn);
+});
+
+menuBtn.addEventListener('click', () => {
+  clearContent();
+  loadMenu();
+  updateForkPosition(menuBtn);
+});
+
+aboutBtn.addEventListener('click', () => {
+  clearContent();
+  loadAbout();
+  updateForkPosition(aboutBtn);
+});
+
+function clearContent() {
+  content.innerHTML = '';
+}
+
+loadHome();
+window.addEventListener('load', () => updateForkPosition(homeBtn));
+window.addEventListener('resize', () => {
+    const activeButton = document.querySelector('.nav-top button.active') || homeBtn;
+    updateForkPosition(activeButton);
+});
+
 // const style = document.createElement("style");
 // style.textContent = `
 //   body {
@@ -17,38 +67,3 @@ import { loadAbout } from './about.js';
   //   background-color: white;
   //   }
   // `;
-  const homeBtn = document.querySelector('nav button:nth-child(1)');
-  const menuBtn = document.querySelector('nav button:nth-child(2)');
-  const aboutBtn = document.querySelector('nav button:nth-child(3)');
-  const content = document.getElementById("content");
-
-homeBtn.addEventListener('click', () => {
-  clearContent();
-  loadHome();
-});
-
-menuBtn.addEventListener('click', () => {
-  clearContent();
-  loadMenu();
-});
-
-aboutBtn.addEventListener('click', () => {
-  clearContent();
-  loadAbout();
-});
-
-function clearContent() {
-  content.innerHTML = '';
-}
-
-loadHome();
-
-
-
-// document.head.appendChild(style)
-
-content.appendChild(header);
-content.appendChild(paragraph);
-content.appendChild(img);
-
-

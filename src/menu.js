@@ -5,7 +5,6 @@ export function loadMenu() {
   const menuList = document.createElement('ul');
   
   header.textContent = 'Our Menu';
-  
   const menuItems = [
       { name: 'Spaghetti Carbonara', price: '$16.99' },
       { name: 'Fettuccine Alfredo', price: '$15.99' },
@@ -20,4 +19,8 @@ export function loadMenu() {
   
   content.appendChild(header);
   content.appendChild(menuList);
+
+  // Update active button state
+  document.querySelectorAll('.nav-top button').forEach(btn => btn.classList.remove('active'));
+  document.querySelector('.nav-top button:nth-child(2)').classList.add('active');
 }

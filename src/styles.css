@@ -4,18 +4,43 @@ body {
 
 nav {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
-  gap: 40px;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.nav-top {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  padding: 1rem 1rem 0 1rem;
+}
+.nav-bottom {
+  position: relative;
+  min-height: 24px;
+  display: flex;
+  justify-content: center;
+  height: 24px;
+  margin: 0;
 }
 
 .nav-button {
   margin: 0 10px;
 }
 
-.fork-icon {
-  rotate: 45deg;
-  width: 60px;
-  height: 60px;
+.fork-indicator {
+  position: absolute;
+  width: 24px;  /* Adjust size as needed */
+  height: 24px;
+  rotate: 30deg;
+  transition: left 0.3s ease; /* Smooth transition when moving */
+}
+
+nav button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+nav button.active {
+  font-weight: bold;
 }
