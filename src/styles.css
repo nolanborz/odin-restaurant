@@ -1,15 +1,15 @@
 body {
-  background-color: rgb(183, 255, 157);
+  font-family: 'Playfair Display', serif;
 }
 
 nav {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: calc(100% - 6rem); /* Subtracting total margin (3rem left + 3rem right) */
+  width: calc(100% - 10rem); /* Subtracting total margin (3rem left + 3rem right) */
   background-color: white;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
 .nav-top {
@@ -42,6 +42,11 @@ nav {
 nav button {
   padding: 0.5rem 1rem;
   cursor: pointer;
+  background-color: rgb(0, 195, 0);
+  border-radius: 7px;
+  width: 90px;
+  height: 40px;
+  font-size: medium;
 }
 
 nav button.active {
@@ -66,7 +71,7 @@ background-color: white;
   justify-content: center;
   align-items: center;
   height:max-content;
-  margin-right: 3rem;
-  margin-left: 3rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
   padding: 2rem;
 }
